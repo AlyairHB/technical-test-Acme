@@ -1,0 +1,82 @@
+<aura:component controller="createContactControllerAura"
+                implements="force:appHostable,flexipage:availableForAllPageTypes"
+                access="global">
+
+    <aura:attribute name="firstName"       type="String" />
+    <aura:attribute name="lastName"        type="String" />
+    <aura:attribute name="selectedRegion"  type="String" />
+    <aura:attribute name="accountId"       type="String" />
+    <aura:attribute name="successMessage"  type="String" />
+    <aura:attribute name="errorMessage"    type="String" />
+
+    <aura:attribute name="regionOptions" type="List" default="[
+        { 'label': 'Americas', 'value': 'Americas_Contact',
+          'description': 'Sales team for North, Central and South America.' },
+        { 'label': 'Europe',   'value': 'Europe_Contact',
+          'description': 'Existing European sales process.' }
+    ]"/>
+
+    <div class="slds-card slds-p-around_large">
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Create New Contact
+        </h2>
+
+      
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-m-bottom_medium">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Description</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.regionOptions}" var="opt">
+                    <tr>
+                        <td>{!opt.label}</td>
+                        <td>{!opt.description}</td>
+                        <td>
+                            <lightning:input
+                                type="radio"
+                                name="region"
+                                label=""
+                                value="{!opt.value}"
+                                checked="{!(v.selectedRegion == opt.value)}"
+                                onchange="{!c.handleRegionChange}"
+                            />
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+
+
+        <lightning:input label="First Name" value="{!v.firstName}"
+                         class="slds-m-bottom_small" />
+        <lightning:input label="Last Name"  value="{!v.lastName}"
+                         class="slds-m-bottom_small" />
+        <lightning:recordPicker 
+            label="Account" 
+            objectApiName="Account"
+            value="{!v.accountId}"
+            class="slds-m-bottom_small"
+        />
+
+      
+        <aura:if isTrue="{!v.successMessage}">
+            <div class="slds-notify slds-notify_toast slds-theme_success">
+                {!v.successMessage}
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.errorMessage}">
+            <div class="slds-notify slds-notify_toast slds-theme_error">
+                {!v.errorMessage}
+            </div>
+        </aura:if>
+
+       <div class="slds-p-top_medium">
+        <lightning:button variant="brand" label="Create Contact"
+                          onclick="{!c.handleCreate}" />
+        </div>
+    </div>
+</aura:component>
