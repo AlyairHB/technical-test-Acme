@@ -4,11 +4,27 @@
     },
 
     handleCreate: function(component, event, helper) {
-      console.log('>>> handleCreate disparado');
-        console.log('firstName:',  component.get('v.firstName'));
-        console.log('lastName:',   component.get('v.lastName'));
-        console.log('region:',     component.get('v.selectedRegion'));
-        console.log('accountId:',  component.get('v.accountId'));
+       
         helper.createContact(component);
+    },
+
+    init: function(component, event, helper) {
+        try {
+            var url = window.location.pathname;
+           
+            
+            var parts = url.split('/');
+            for (var i = 0; i < parts.length; i++) {
+                var part = parts[i];
+                if (part.length === 18 && /^[a-zA-Z0-9]{18}$/.test(part)) {
+                                        if (part.startsWith('001')) {
+                        component.set('v.accountId', part);
+                                                break;
+                    }
+                }
+            }
+        } catch (e) {
+            console.log('Error:', e.message);
+        }
     }
 })

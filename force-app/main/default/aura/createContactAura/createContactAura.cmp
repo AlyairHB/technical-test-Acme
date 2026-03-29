@@ -9,6 +9,8 @@
     <aura:attribute name="successMessage"  type="String" />
     <aura:attribute name="errorMessage"    type="String" />
 
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
     <aura:attribute name="regionOptions" type="List" default="[
         { 'label': 'Americas', 'value': 'Americas_Contact',
           'description': 'Sales team for North, Central and South America.' },
@@ -55,12 +57,6 @@
                          class="slds-m-bottom_small" />
         <lightning:input label="Last Name"  value="{!v.lastName}"
                          class="slds-m-bottom_small" />
-        <lightning:recordPicker 
-            label="Account" 
-            objectApiName="Account"
-            value="{!v.accountId}"
-            class="slds-m-bottom_small"
-        />
 
       
         <aura:if isTrue="{!v.successMessage}">
