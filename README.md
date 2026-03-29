@@ -12,7 +12,7 @@ Componente Lightning para la creación de Contactos con selección de región.
 
 **Funcionalidades:**
 
-- Selección de región (Americas / Europe) via radio buttons
+- Selección de región (Americas / Europe)
 - Campos: First Name, Last Name, Account(La cuenta es obtenida a partir de la url de la account view)
 - Mensajes de éxito/error
 
