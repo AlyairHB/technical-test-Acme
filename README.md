@@ -132,7 +132,12 @@ podremos agregar un nuevo componente, dentro de este arrastraremos nuestro compo
 2. Click en "Add Contact"
 3. El Contacto y la Oportunidad asociada debería haberse creado de manera correcta
 
+- Rellenado de formulario
 ![Rellenado de formulario](./.images/contactC.png)
 
+- Verificacion en Account
+
 ![Verificación en Account](./.images/Verificacion_account.png)
+
+- Detalles de la oportunidad
 ![Detalles de la oportunidad](./.images/opportunityDetail.png)
