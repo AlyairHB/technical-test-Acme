@@ -141,17 +141,3 @@ podremos agregar un nuevo componente, dentro de este arrastraremos nuestro compo
 
 - Detalles de la oportunidad
 ![Detalles de la oportunidad](./.images/opportunityDetail.png)
-
-### Pruebas
-
-Es posible acceder al siguiente sandbox para poder revisar los componentes del
-ejercicio
-
-- Org
- <https://connect-force-2401-dev-ed.scratch.my.salesforce.com>
-
-- Username
-  <rodolfo.alyair.huerta@evaluation2026.consulting>
-
-- Password
-  huerta992001
